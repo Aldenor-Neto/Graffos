@@ -1,0 +1,149 @@
+Atividade 1 de Grafos - Manhã
+A atividade valerá ponto e deve ser entregue de forma INDIVIDUAL até às 18h00 do dia 21.02.2024.
+Nome do Aluno: Francisco Aldenor silva Neto
+Matrícula:  20221045050117
+ 
+2 - Quais os vértices têm “maior grau” e “menor grau” do grafo da figura abaixo?
+Questão anulada
+
+respondendo textualmente: O grau de um nó de um grafo é dado pelo número de arestas que o nó possui. Exemplo: se um nó 'x' tem 3 arestas então ele é de grau '3'.
+ 
+3 - Faça um grafo bipartido completo e um grafo completo ?
+
+questão anulada
+
+respondendo textualmente:
+Um grafo bipartido completo é aquele na qual podemos repartir o grafo em dois sub-grafos onde o grafo-01 se liga com o grafo02, porém ambos não possuem ligamentos internos.
+exemplo: no grafo G temos  {
+	N{1;2;3;4}
+	A{a1;a2;a3;a4}
+		g(a1) 1-3
+		g(a2) 1-4
+		g(a3) 2-3
+		g(a4) 2-4
+}
+no exemplo podemos dividir o grafo em duas partes p1{1;2} e p2{3;4} os nós de p1 estão ligados aos nós de p2, no entanto os nós do conjunto p1 assim como os nós do conjunto p2 não tem ligação entre eles.
+
+Um grafo completo é aquele na qual todos os nós tem ligação direta, ou seja são adjacentes.
+exemplo:
+G{
+	N{1;2;3}
+	A{a1;a2;a3}
+		g(a1) 1-2
+		g(a2) 1-3
+		g(a3) 2-3
+}
+podemos perceber que todos os nós tem ligação 
+
+4 - Faça uma modelo baseado em tripla: N, A e g do grafo abaixo? 
+ 
+Questão anulada
+
+respondendo textualmente: um modelo baseado em tripla é quando temos a extrutura G{N, A g}
+G{
+	n{1;2}
+	A{a1}
+	g(a1) 1-2
+}
+
+5 - Faça um grafo que tenha um nó isolado, que tenha um subgrafo e seja cíclico?
+
+G{
+	n{1;2;3;4}
+	A{a1;a2;a3}
+		g(a1) = 1-2;
+		g(a2) = 2-3
+		g(a3) = 3-1
+}
+
+6 - Explique o que é um grafo conexo?
+	um Grafo conexo é quando apartir de um nó 'x' podemos chegar em qualquer outro nó do grafo. 
+
+7 - Todo grafo conexo é cíclico?  Explique sua resposta?
+	não! podemos ter um grafo conexo e não ciclico. exemplo se tivermos um grafo não dirigido com 3 nós e duas arestas onde temos g(a1) = 1-2 e g(a2)=2-3, logo podemos apartir de qualquer dos nós chegar a outro no entanto não temos ligazção entre o nós 1 e 3.)
+
+8 - Implemente em uma linguagem de sua preferência um programa que gere como saída uma "matriz de adjacência de um grafo bipartido completo", dado como entradas os índices "m" e "n" da representação Km,n. 
+Onde "m" e "n" para esse caso têm o limite de 2 a 20, ou seja, 2 <= (m, n) <= 20. *Pode fazer o upload do código comentado.
+
+    public static int[][] grafoBiPartido() {
+
+//declaração de variaveis
+        Scanner input = new Scanner(System.in);
+        int m;
+        int n;
+
+//laço que recebe o valor de M
+        do {
+            System.out.println("qual a quantidade de nós que possui na parte M do grafo, informe valor entre 2 e 20.");
+            m = input.nextInt();
+
+//verifica se o valor esta dentro do esperado
+            if (m < 2 || m > 20) {
+                System.out.println("O valor de M deve estar entre 2 e 20");
+            }
+        } while (m < 2 || m > 20);
+
+//laço que recebe o valor de N
+        do {
+            System.out.println("qual a quantidade de nós que possui na parte N do grafo, informe valor entre 2 e 20.");
+            n = input.nextInt();
+
+//verifica o valor esperado
+            if (n < 2 || n > 20) {
+                System.out.println("O valor de N deve estar entre 2 e 20");
+            }
+        } while (n < 2 || n > 20);
+
+//declaração da matriz de adjacencia 
+        int[][] biPartido = new int[m + n][m + n];
+
+//monta a matriz
+        for (int i = 0; i < m; i++) {
+            for (int j = m; j < m + n; j++) {
+                biPartido[i][j] = 1;
+            }
+        }
+
+//imprime a matriz
+        for (int i = 0; i < m + n; i++) {
+            for (int j = 0; j < m + n; j++) {
+                System.out.print(biPartido[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+//retorna a matriz
+        return biPartido;
+    }
+
+
+9 - Implemente em uma linguagem de sua preferência um programa que conte os graus de cada nó como saída de um grafo não dirigido, dado como entrada uma matriz de adjacência de um grafo com no mínimo 2 e no máximo 20 nós.
+
+    public static int[] contaGrausGrafos(int[][] matriz) {
+
+//declaração das variaveis
+        int tamanho = matriz[0].length;
+        int[] vetor = new int[tamanho];
+
+        for (int i = 0; i < tamanho; i++) {
+            for (int j = 0; j < tamanho; j++) {
+//verifica se o valor na posição da matriz é igual a 1, caso positivo incrementa um na posição do vetor 
+                if (matriz[i][j] == 1) {
+                    vetor[i]++;
+                    vetor[j]++;
+//caso a posição de I seja a mesma de J decrementa 1 da posição do vetor pois foi acrescentado dobrado.
+                    if (i == j) {
+                        vetor[i]--;
+                    }
+                }
+            }
+        }
+
+//imprime o vetor com a quantidade de graus de cada nó
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.print(vetor[i] + " ");
+        }
+
+        return vetor;
+    }
+
