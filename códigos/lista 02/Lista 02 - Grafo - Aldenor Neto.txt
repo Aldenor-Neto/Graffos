@@ -1,0 +1,145 @@
+Atividade 2 de Grafos -  Manhã
+aldenor.neto02@aluno.ifce.edu.br 
+
+Aluno: Francisco Aldenor Silva Neto
+Matrícula: 20221045050117
+ 
+1 - Para resolver o problema da mochila, vamos imaginar o seguinte:
+Capacidade da mochila: 20 Kg 
+Barras de dinheiro: 
+Barra 1 – 5kg e R$ 3,00 
+Barra 2 – 6kg e R$ 2,00 
+Barra 3 – 8kg e R$ 4,00 
+Barra 4 – 9kg e R$ 5,00 
+Barra 5 – 0,5kg e R$ 1,00 
+Barra 6 – 12kg e R$ 6,00 
+Barra 7 – 10kg e R$ 3,50 
+Barra 8 – 6,5kg e R$ 2,50 
+Tente preencher a mochila usando apenas as barras de dinheiro acima (sem repetir), com o objetivo de não ultrapassar 20 Kg, maximizando a quantidade de dinheiro possível. Como resposta, coloque as barras usadas.
+
+Barra 1 – 5kg e R$ 3,00 
+Barra 3 – 8kg e R$ 4,00 
+Barra 5 – 0,5kg e R$ 1,00 
+Barra 8 – 6,5kg e R$ 2,50 
+
+20kg e R$ 10,50
+
+ 
+2 - Usando o algoritmo da arvore geradora mínima de Prim aplique no grafo abaixo iniciando em nó vértice “1”.
+O Grafo é representado por G =(N,A,g), em que 
+N = {1,2,3,4,5,6,7}, 
+A = {a,b,c,d,e,f,g,h,i,j,l,m}, 
+g(a) = 1-3;  (peso da aresta a = 3)
+g(b) = 1-2;  (peso da aresta b = 5)
+g(c) = 2-3;  (peso da aresta c = 4)
+g(d) = 3-4;  (peso da aresta d = 5)
+g(e) = 2-4;  (peso da aresta e = 6)
+g(f) = 3-6;  (peso da aresta f = 6)
+g(g) = 2-5;  (peso da aresta g = 2)
+g(h) = 4-6;  (peso da aresta h = 6)
+g(i) =  4-5;  (peso da aresta i = 6)
+g(j) =  5-6;  (peso da aresta j = 3)
+g(l) = 6-7;  (peso da aresta l = 4)
+g(m)= 5-7; (peso da aresta m = 5).
+ 
+Resposta:
+1→3→4
+3→2→5→6→7
+
+
+3 -  Usando a busca em profundidade e largura, apresente a sequencia na arvore abaixo para se chegar até o vértice “13”
+O Grafo é representado por G =(N,A,g), em que N = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}, A = {a,b,c,d,e,f,g,h,i,j,l,m,n,o}, 
+g(a) = 1-2; 
+g(b) = 2-4;  
+g(c) = 2-5; 
+g(d) = 4-8; 
+g(e) = 4-9; 
+g(f) = 5-10;
+g(g) = 5-11;  
+g(h) = 1-3; 
+g(i) =  3-6; 
+g(j) =  3-7; 
+g(l) = 6-12;  
+g(m)= 6-13;
+g(n) = 7-14;
+g(o) = 7-15.
+
+Árvore montada:
+1→{2;3}
+2→{4;5} 3→{6;7} 
+4 → {8;9} 5 → {10;11} 6→{12;13} 7→{14;15}
+8 9 10 11 12 13 14 15 
+
+busca por largura:
+1 2 3 4 5 6 7 8 9 10 11 12 13
+encontrou 13
+
+busca por profundidadde:
+1 2 4 8  9 5 10 11 3 6 12 13 
+encontrou o 13
+ 
+4 - Faça a matriz de adjacência do grafo direcionado abaixo, ainda conte quantos graus tem em cada nó (entrada e saída)?
+Grafo D = (N, A, g), 
+N = {1, 2,3,4,5,6}, 
+A = {a,b,,c,d,e,f,g}, 
+g(a) = 1-3;
+g(b) = 1-2;
+g(c)  = 2-5;
+g(d) = 2-4;
+g(e) = 3-5;
+g(f) = 5-6;
+g(g) = 4-6;
+ 
+ 0 1 1 0 0 0
+ -1 0 0 1 1 0
+ -1 0 0 0 1 0
+ 0 -1 0 0 0 1
+ 0 -1 -1 0 0 1
+ 0 0 0 -1 -1 0
+
+#Nó - Grau de saída - Grau de entrada
+
+1 - 2 - 0
+2 - 2 - 1
+3 - 1 - 1 
+4 - 1 - 1 
+5 - 1 - 2 
+6 - 0 - 2
+
+5 -  Faça uma matriz de adjacência de um grafo direcionado que tenha pelo menos 8 nós, que seja cíclico, ainda conte quantos graus tem em cada nó?
+ 
+Matriz:
+0 1 0 0 0 0 0 -1
+-1 0 1 0 0 0 0 0
+0 -1 0 1 0 0 0 0
+0 0 -1 0 1 0 0 0
+0 0 0 -1 0 1 0 0 
+0 0 0 0 -1 0 1 0
+0 0 0 0 0 -1 0 1
+1 0 0 0 0 0 -1 0
+
+#Nó - #Grau saída - #Grau entrada
+1 - 1 - 1
+2 - 1 - 1
+3 - 1 - 1
+4 - 1 - 1
+5 - 1 -1
+6 - 1 - 1
+7 - 1 - 1
+8 - 1 - 1
+
+6 - Explique o problema do caixeiro viajante? Diga em quais problemas ele não é aplicado?
+
+o   caixeiro viajante é um problema onde começamos em um determinado nó(A), percorremos todos os demais nós existentem no graffo e retornamos para o nó(a), ou seja, retorna para o nó de partida.
+deve passar por todos os nós existentes caso aja um nó no qual ele não passe então não se aplica.
+não pode passaar duas ou mais vezes pelo mesmo nó. caso contrario não se aplica.
+deve percorrer todos os nós gastando o menor tempo possivel, ou seja, pegando as arestas com menor peso.
+
+7 - Faça uma implementação na 'linguagem de sua preferencia' em que o usuário irá digitar uma matriz de adjacência de tamanho 6x6 como entrada (input) representada por um “grafo dirigido de 6 nós”, após isso o programa deverá imprimir a quantidade de graus de entradas e saídas de cada nó?
+
+Projeto com a questão na raiz do zip
+
+8 - Implemente o algoritmo da “busca em largura” e “busca em profundidade” para encontrar o nó “11” do grafo da "questão 3"?
+*Imprima os caminhos percorridos como saída de cada busca
+
+Projeto com a questão na raiz do zip

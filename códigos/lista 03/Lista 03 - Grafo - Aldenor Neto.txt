@@ -1,0 +1,79 @@
+Atividade 3 de Teoria de Grafos- Manhã
+
+Nome do Aluno: Francisco Aldenor Silva Neto
+Matrícula: 20221045050117
+ 
+1 - Usando o algoritmo da arvore geradora mínima de Kruskal aplique no grafo abaixo iniciando no vértice “1”.
+O Grafo é representado por G =(N,A,g), em que N = {1,2,3,4,5,6,7}, A = {a,b,c,d,e,f,g,h,i,j,l,m}, 
+g(a) = 1-3;  (peso da aresta a = 3)
+g(b) = 1-2;  (peso da aresta b = 5)
+g(c) = 2-3;  (peso da aresta c = 4)
+g(d) = 3-4;  (peso da aresta d = 5)
+g(e) = 2-4;  (peso da aresta e = 6)
+g(f) = 3-6;  (peso da aresta f = 6)
+g(g) = 2-5;  (peso da aresta g = 2)
+g(h) = 4-6;  (peso da aresta h = 6)
+g(i) =  4-5;  (peso da aresta i = 6)
+g(j) =  5-6;  (peso da aresta j = 3)
+g(l) = 6-7;  (peso da aresta l = 4)
+g(m)= 5-7; (peso da aresta m = 5).
+
+resposta:
+
+Árvore: obs. quebra de linha é ramificação
+1-3-2-5-6-7
+3-4
+
+ordem de pesos:
+g(g) = 2-5;  (peso da aresta g = 2)
+g(j) =  5-6;  (peso da aresta j = 3)
+g(a) = 1-3;  (peso da aresta a = 3)
+g(c) = 2-3;  (peso da aresta c = 4)
+g(l) = 6-7;  (peso da aresta l = 4)
+g(d) = 3-4;  (peso da aresta d = 5)
+
+somatorio dos pesos = 21
+
+2 - Qual a diferença da matriz de adjacência para incidência?
+ 
+Resposta:
+Adjacência tem tanto nas linhas como nas colunas a referencia dos nós. fazendo assim uma ligação de nó a nó na matriz.
+
+Incidência tem referencia de nós nas linhas e arestas  nas colunas. fazendo assim  ligação de nó em relação a aresta, dando maior precisão nos relacionamentos entre os nós.
+
+3 -  Faça todos os tipos de ordenação topológica do grafo abaixo usando o método baseado em busca em profundidade?
+Grafo D = (N, A, g), N = {1, 2,3,4,5,6}, A = {a,b,c,d,e,f,g}, 
+g(a) = 1-3;
+g(b) = 1-2;
+g(c)  = 2-5;
+g(d) = 2-4;
+g(e) = 3-5;
+g(f) = 5-6;
+g(g) = 4-6;
+
+Resposta: obs. relacionados de acordo com a entrada na pilha. o 1º da lista é o 1º da pilha.
+1ª possibilidade =  6→4→5→2→3→1
+2ª possibilidade  =  6→5→4→2→3→1
+3ª possibilidade  =  6→5→3→4→2→1
+
+4 - Qual seria o melhor caminho iniciando do nó 1 e até 7  do grafo  da questão 1, usando o algoritmo de dijkstra?
+
+Caminho mais curto de 1 para 7: 1 -> 2 -> 5 -> 7
+Distância mínima: 11
+
+5 - Explique o ordenação topológica em grafos. cite algumas aplicações?
+
+Resposta:
+a ordenação topológica fornece uma sequência linear dos vértices, onde cada vértice aparece antes de seus antecessores. Começamos encontrando um vértice sem arestas de entrada, ou seja, um vértice que não tem nenhuma aresta apontando para ele, Adicionamos este vértice à ordenação, Removemos este vértice e suas arestas incidentes do grafo, Repetimos o processo até que todos os vértices tenham sido incluídos na ordenação.
+
+6 - Implemente o algoritmo da arvore geradora mínima de Kruskal e Prim aplicado ao grafo abaixo iniciando em ambos no vértice “1” para o grafo da questão 1?
+
+Código na raiz do zip
+
+7 - Implemente o algoritmo do Dijkstra para encontrar a rota entre os pontos "1"(início) até "7"(fim) do grafo da questão 1?
+
+Código na raiz do zip
+
+8 - Implemente uma matriz de incidência do grafo direcionado da questão 3, ainda conte quantos graus tem em cada nó(saída e entrada)?
+
+Código na raiz do zip
