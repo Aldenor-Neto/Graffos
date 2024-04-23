@@ -1,0 +1,92 @@
+IFCE- Maracanaú
+CURSO: Ciências da Computação Data: 10 / 04 / 2024
+ALUNO(A): Francisco Aldenor Silva Neto Matrícula: 20221045050117
+DISCIPLINA: Teoria dos Grafos.
+PROF.: Darielson Souza
+INFORMAÇÕES IMPORTANTES PARA SEREM USADAS NO DIA DA PROVA
+CELULARES DEVEM PERMANECER DESLIGADOS E NÃO PODEM SER
+UTILIZADOS COMO CALCULADORA.
+A PROVA SERÁ EM: (X) SALA ( ) LABORATÓRIO
+TIPOS DE CONSULTA (X)Nenhuma ( )Calculadora ( )Outras ____________
+1ª. AVALIAÇÃO
+1ª QUESTÃO (1,0 ponto):
+Sobre a definição de grafos marque a alternativa correta?
+a) Quando temos um laço em um dos nós, a matriz de adjacência tem a diagonal principal zerada;
+b) Uma arvore sempre pode ser um grafo cíclico e um nó isolado;
+c) Um grafo irá resolver um problema;
+
+Resposta ->d) Um grafo modela um problema, mas não resolve.
+
+2ª QUESTÃO (1,0 ponto):
+Qual a diferença do algoritmo PRIM e Kruskal?
+
+Resposta: Ambos são usados para encontrar a Árvore Geradora Mínima a diferença é  que  no algoritmo de Prim Começa em um nó arbitrário e expande a árvore adicionando a aresta de menor custo que conecta um vértice da árvore a um vértice ainda não conectado. quando o nó que está a ser conectado não possui aresta com o nó que ainda não foi incluso na árvore ele retorna ao nó anterior que se conecta ao nó que falta e que possua o menor custo.
+Já no Kruskal ele Ordena todas as arestas por peso crescente e adiciona as arestas à árvore uma a uma, desde que não criem um ciclo.
+
+3ª QUESTÃO ( 1,5 ponto) :
+Faça um grafo que seja conexo, acíclico e dirigido, ainda faça uma matriz de incidência do mesmo?
+
+Resposta:
+D(N, A, g)
+N(a, b, c)
+A{
+1, 2, 3, 4}
+g(1) = a-b
+g(2) = b-a
+g(3) = b-c
+g(4) = c-b
+
+Matriz de incidência 
+	v1	v2	v3	v4
+a	1	-1	0	0
+b	-1	1	1	-1
+c	0	0	-1	1
+
+4ª QUESTÃO (1,5 ponto):
+Explique como seria um grafo bipartido completo K8,4?
+
+Resposta: Um grafo bipartido   é quando temos umgrafo com dois sub-grafos nele(X, Y) cujo esses grafos se conectam um ao outro, porém não tem conecção dos nós existentes no conjunto.  O fato de ser completo significa que todos os nós do conjunto 'X' se conectam a todos os nós do conjunto 'Y'.
+No caso de K8, 4, significa que temos um grafo com 12 nós, onde em X temos 8 nós e em Y temos 4 nós. para cada nó de  X, X1 até X8, temos ligação em Y de Y1 até Y4.
+
+5ª QUESTÃO (2,0 ponto):
+Dado um grafo D = (N, A, g):
+N = {1, 2, 3, 4, 5, 6}
+A = {a1, a2, a3, a4, a5, a6, a7}
+g(a1) = 1-2; g(a2) = 1-2; g(a3) = 2-2; g(a4) = 2-3; g(a5) = 1-3; g(a6) = 3-4;g(a7) = 6-4.
+Desenhe este Grafo D e faça a matriz de incidência?
+
+Resposta:
+impossivel  o desenho do grafo.
+
+Matriz de incidencia:
+	a1	a2	a3	a4	a5	a6	a7
+n1	1	1	0	0	1	0	0
+n2	-1	-1	2	1	0	0	0
+n3	0	0	0	-1	-1	1	0
+n4	0	0	0	0	0	-1	-1
+n5	0	0	0	0	0	0	0
+n6	0	0	0	0	0	0	1
+
+6ª QUESTÃO (1,5 ponto):
+Faça uma ordenação topológica baseada em busca em profundidade do grafo da questão 5?
+
+Resposta: Obs. usarei a ordem da fila para a entrada na pilha, o 1º da fila é o   1º da pilha. usarei → para apontar para o prócimo da pilha.
+4 → 3 → 2 → 1 → 6 → 5
+
+7ª QUESTÃO (1,5 ponto):
+Qual diferença da busca em largura para a busca em profundidade? Cite exemplos de cada?
+
+Resposta:
+a busca em profundidade inicia  na raiz e vai acessando o nó a esquerda até encontrar uma folha, quando encontra verifica se é o alvo, caso não seja retorna ao nó anterior(pai) verifica se possui outra ramificação se tiver acessa e comparaa, repete o processo até encontrar o alvo ou até vizitar todos os nós da árvore.
+Exemplo:
+a(b, c) : b(d, e): c(f, g)
+		a
+	b	c
+d	e	f	g
+
+pegando o alvo como 'c temos:
+inicia em 'a', acessa 'b', acessa 'd', volta 'b', acessa 'e', volta 'b', volta 'a', acessa 'c', finaliza.
+
+a busca por largura trabalha por níveis, inicia na raiz acessa o nó que está no próximo  nível com ramificação a esquerda, verifica se é o alvo, caso não seja retorna ao nó anterior e acessa  ao nó da direita, caso ainda não seja o alvo retorna novamente ao anterior, entra novamente a esquerda e acessa o próximo nível para fazer a busca. vai repetindo o processo até encontrar o alvo ou percorer toda a árvore.
+pegando o mesmo exemplo anterior com o mesmo alvo:
+inicia 'a', acessa 'b', volta 'a', acessa 'c', finaliza.
